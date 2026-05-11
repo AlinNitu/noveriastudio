@@ -1,19 +1,40 @@
+import { Readable } from "node:stream";
 import server from "../dist/server/server.js";
 
-export default async function handler(request) {
-  // Vercel's Node runtime hands us a Request whose .url is just the pathname
-  // ("/", "/foo"). TanStack Start → h3-v2 → srvx's FastURL chokes on that
-  // (ERR_INVALID_URL when it tries `new URL("/")`). Rebuild as absolute.
-  const host = request.headers.get("host") ?? "localhost";
-  const proto = request.headers.get("x-forwarded-proto") ?? "https";
-  const absoluteUrl = new URL(request.url, `${proto}://${host}`).toString();
+export default async function handler(req, res) {
+  // Vercel's Node runtime hands us IncomingMessage/ServerResponse, not the
+  // Web Request/Response that TanStack Start (and Cloudflare Workers) expect.
+  // Bridge the two: build a Web Request, run SSR, pipe the Response back.
+  const host = req.headers.host ?? "localhost";
+  const proto = req.headers["x-forwarded-proto"] ?? "https";
+  const url = `${proto}://${host}${req.url ?? "/"}`;
 
-  const init = { method: request.method, headers: request.headers };
-  if (request.method !== "GET" && request.method !== "HEAD") {
-    init.body = request.body;
+  const headers = new Headers();
+  for (const [key, value] of Object.entries(req.headers)) {
+    if (Array.isArray(value)) {
+      for (const v of value) headers.append(key, v);
+    } else if (value !== undefined) {
+      headers.set(key, value);
+    }
+  }
+
+  const init = { method: req.method, headers };
+  if (req.method !== "GET" && req.method !== "HEAD") {
+    init.body = Readable.toWeb(req);
     init.duplex = "half";
   }
-  const fixed = new Request(absoluteUrl, init);
+  const request = new Request(url, init);
 
-  return server.fetch(fixed, process.env, {});
+  const response = await server.fetch(request, process.env, {});
+
+  res.statusCode = response.status;
+  for (const [key, value] of response.headers) {
+    res.setHeader(key, value);
+  }
+
+  if (response.body) {
+    Readable.fromWeb(response.body).pipe(res);
+  } else {
+    res.end();
+  }
 }
