@@ -149,7 +149,7 @@ function Index() {
             </Reveal>
             <Reveal delay={160}>
               <p>
-                We work at the intersection of strategy, design, technology, and execution —
+                We work at the intersection of strategy, design, technology, and execution,
                 turning early concepts into structured projects ready for growth, investment, or
                 launch.
               </p>
@@ -265,7 +265,7 @@ function Index() {
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 Noveria Studio is currently shaping its first digital concepts across services,
                 applications, and scalable product ideas. Our upcoming projects will be presented
-                as they mature — with a focus on clarity, usefulness, and long-term potential.
+                as they mature, with a focus on clarity, usefulness, and long-term potential.
               </p>
             </Reveal>
           </div>
@@ -327,7 +327,7 @@ function Index() {
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 Interested in investing, collaborating, or discussing future projects? Send us a
-                message — we read every inquiry.
+                message, we read every inquiry.
               </p>
             </Reveal>
           </div>
