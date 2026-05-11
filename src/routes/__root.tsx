@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/noveria-favicon.jpg";
 
 function NotFoundComponent() {
   return (
@@ -86,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/403a7838-ecbf-4453-9a12-9e6afdcf6656/id-preview-21b10fd3--78cd8f43-81f7-4d9b-89a6-85821bbb1fe1.lovable.app-1778331390892.png" },
     ],
     links: [
+      { rel: "icon", type: "image/jpeg", href: faviconUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
