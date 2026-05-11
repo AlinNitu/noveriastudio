@@ -1,7 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
-  "rewrites": [
-    { "source": "/((?!assets/|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)", "destination": "/api" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/health", "dest": "/api/health" },
+    { "src": "/.*", "dest": "/api" }
   ]
 }
