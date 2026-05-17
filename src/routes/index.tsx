@@ -79,18 +79,26 @@ const experience = [
   { name: "Teamnet", src: teamnetLogo },
 ];
 
-const founders = [
+const founders: {
+  name: string;
+  role: string;
+  img: string;
+  desc: string;
+  linkedin?: string;
+}[] = [
   {
     name: "Alin",
     role: "Technology & Software Engineering",
     img: alinImg,
     desc: "Leads the technological side of Noveria Studio alongside an app development team with more than 10 years of experience in Software Engineering. Focused on technical architecture, scalable systems, digital product development, and long-term technological execution.",
+    linkedin: "https://www.linkedin.com/in/alinnitu/",
   },
   {
     name: "Luigi",
     role: "Operations, Visual Design & AI",
     img: luigiImg,
     desc: "Coordinates operations and visual direction across Noveria Studio projects. Currently pursuing a degree in Computer Engineering, with experience in AI and future specialization in cybersecurity. Focused on execution, structure, design systems, branding, and operational coordination.",
+    linkedin: "https://www.linkedin.com/in/luigi-gabriel-dogaru-76281538a/",
   },
   {
     name: "Miguel",
@@ -298,6 +306,25 @@ function Index() {
                       {f.role}
                     </p>
                     <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                    {f.linkedin && (
+                      <a
+                        href={f.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${f.name} on LinkedIn`}
+                        className="mt-auto inline-flex items-center gap-2 pt-6 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                          className="h-4 w-4"
+                        >
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        <span>LinkedIn</span>
+                      </a>
+                    )}
                   </div>
                 </article>
               </Reveal>
