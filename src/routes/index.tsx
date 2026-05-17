@@ -21,13 +21,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Noveria Studio — Ideas shaped into digital ventures" },
+      { title: "Noveria Studio" },
       {
         name: "description",
         content:
           "Noveria Studio is a modern idea, product, and venture studio developing digital concepts, websites, apps, and future startup projects.",
       },
-      { property: "og:title", content: "Noveria Studio — Ideas shaped into digital ventures" },
+      { property: "og:title", content: "Noveria Studio. Ideas shaped into digital ventures" },
       {
         property: "og:description",
         content:
