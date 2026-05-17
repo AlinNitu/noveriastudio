@@ -3,9 +3,18 @@ import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/site/Navbar";
 import { Reveal, SectionLabel } from "@/components/site/Section";
 import { ContactForm } from "@/components/site/ContactForm";
+import { LogoWall } from "@/components/site/LogoWall";
 import alinImg from "@/assets/founder-alin.jpg";
 import luigiImg from "@/assets/founder-luigi.jpg";
 import miguelImg from "@/assets/founder-miguel.jpg";
+import billieLogo from "@/assets/logos/billie.svg";
+import centerpointLogo from "@/assets/logos/centerpoint.png";
+import indraLogo from "@/assets/logos/indra.png";
+import moonfareLogo from "@/assets/logos/moonfare.svg";
+import pwcLogo from "@/assets/logos/pwc.svg";
+import sohonetLogo from "@/assets/logos/sohonet.png";
+import teamnetLogo from "@/assets/logos/teamnet.jpg";
+import ubisoftLogo from "@/assets/logos/ubisoft.svg";
 import { ArrowUpRight, Lightbulb, Code2, Compass, Rocket } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -57,6 +66,17 @@ const approach = [
   "Validate the positioning",
   "Build the digital foundation",
   "Prepare it for launch, investment, or partnership",
+];
+
+const experience = [
+  { name: "Ubisoft", src: ubisoftLogo },
+  { name: "PwC", src: pwcLogo },
+  { name: "Indra", src: indraLogo },
+  { name: "Billie", src: billieLogo },
+  { name: "Moonfare", src: moonfareLogo },
+  { name: "CenterPoint Energy", src: centerpointLogo },
+  { name: "Sohonet", src: sohonetLogo },
+  { name: "Teamnet", src: teamnetLogo },
 ];
 
 const founders = [
@@ -153,6 +173,26 @@ function Index() {
                 turning early concepts into structured projects ready for growth, investment, or
                 launch.
               </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section id="experience" className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-28">
+          <Reveal>
+            <SectionLabel>Experience</SectionLabel>
+            <h2 className="mt-5 max-w-2xl text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+              Where the team has worked
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Selected companies from the founding team's professional background.
+            </p>
+          </Reveal>
+          <div className="mt-14">
+            <Reveal delay={120}>
+              <LogoWall logos={experience} />
             </Reveal>
           </div>
         </div>
