@@ -14,7 +14,7 @@ import moonfareLogo from "@/assets/logos/moonfare.svg";
 import pwcLogo from "@/assets/logos/pwc.svg";
 import sohonetLogo from "@/assets/logos/sohonet.png";
 import teamnetLogo from "@/assets/logos/teamnet.jpg";
-import ubisoftLogo from "@/assets/logos/ubisoft.svg";
+import ubisoftLogo from "@/assets/logos/ubisoft.png";
 import { ArrowUpRight, Lightbulb, Code2, Compass, Rocket } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -186,9 +186,22 @@ function Index() {
             <h2 className="mt-5 max-w-2xl text-balance text-3xl font-semibold tracking-tight md:text-4xl">
               Where the team has worked
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Selected companies from the founding team's professional background.
-            </p>
+            <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>
+                Multidisciplinary team with experience across executive leadership, AI
+                integration, automation, digital transformation, branding, and enterprise
+                technology solutions.
+              </p>
+              <p>
+                Our background includes work with multinational companies such as Indra,
+                PwC, CenterPoint Energy, Teamnet International, Ubisoft, as well as fast-growing startups like
+                Moonfare, Billie or Sohonet.
+              </p>
+              <p>
+                Focused on building scalable digital products, improving operations, and
+                turning ambitious ideas into structured business ventures.
+              </p>
+            </div>
           </Reveal>
           <div className="mt-14">
             <Reveal delay={120}>
