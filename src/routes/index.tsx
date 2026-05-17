@@ -184,7 +184,7 @@ function Index() {
           <Reveal>
             <SectionLabel>Experience</SectionLabel>
             <h2 className="mt-5 max-w-2xl text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-              Where the team has worked
+              Companies we've worked with
             </h2>
             <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
